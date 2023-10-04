@@ -1,10 +1,32 @@
 .product-card {
     margin: 10px 0 0 10px;
-    max-width: 200px;
-    background-color: lightgoldenrodyellow;
+    max-width: 300px;
+    max-height: 400px;
     border-radius: 4px;
 }
 
 .product-content {
     padding: 10px;
+    max-height: 50px;
+}
+
+.product-content p {  
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.name-tag {
+    display: inline;
+}
+
+.price-tag {
+    font-weight:500;
+    display: inline;
+}
+
+.product-actions button h3 {
+    display: inline;
+    color: black;
+    font-weight: bold;
 }

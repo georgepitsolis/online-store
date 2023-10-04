@@ -2,18 +2,30 @@
 <mat-card class="product-card">
     <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
   <mat-card-content class="product-content">
-    <h2>{{ product.name }}</h2>
-    <p> {{ product.description }} </p>
+    <div>
+        <h2 class="name-tag" style="display: inline;">{{ product.name }}</h2>
+        <div style="float:right">
+             <h1 class="price-tag">{{ product.price }}</h1>
+             <mat-icon>euro</mat-icon>
+        </div>
+       
+    </div>
+    <p> {{ product.material }} </p>
   </mat-card-content>
   <mat-card-actions class="product-actions">
-    <button mat-icon-button  color="primary" (click)="addToCart()" [matBadgeHidden]="!cartItem.inCart" [matBadge]="cartItem.quantity" matBadgeColor="warn" matBadgeSize="medium">
+    <button mat-fab extended="" (click)="addToCart()">
         <mat-icon>shopping_cart</mat-icon>
+        <span *ngIf="!cartItem.inCart; else AddedToCart">Add to cart</span>
+        <ng-template #AddedToCart>
+            Added  
+            <h3>{{cartItem.quantity}}</h3>
+        </ng-template>
     </button>
     <hr />
-    <button mat-icon-button color="primary">
+    <button mat-icon-button>
         <mat-icon>share</mat-icon>
     </button>
-    <button mat-icon-button (click)="onFavorite()" color="warn">
+    <button mat-icon-button (click)="onFavorite()">
         <mat-icon *ngIf="!favorite; else Favorite">favorite_border</mat-icon>
         <ng-template #Favorite>
             <mat-icon>favorite</mat-icon>
